@@ -1,14 +1,17 @@
-require 'shop'
 require 'menu'
 
-describe Shop do
+describe Menu do
 
-  subject(:shop) { described_class.new }
-  let(:menu) { double(:menu, dishes: "this is the menu") }
+  subject(:menu) { described_class.new }
+  let(:dishes) { double(:dishes) }
 
-  describe "#show_menu" do
-    it "prints all dishes" do
-      expect(shop.show_menu(menu)).to eq "this is the menu"
+  describe "#beautiful_printer" do
+    it "prints the menu in a beautiful way" do
+      dish = { 1 => ["food", "price"] }
+      expect(menu.beautiful_printer(dish)).to eq "1. food  £price"
+      dish.each do |key, value|
+        puts "#{key}. #{value[0]}  £#{value[1]}"
+      end
     end
   end
 end

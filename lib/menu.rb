@@ -11,4 +11,10 @@ class Menu
       5 => ["Crisps", 1]
     }
   end
+
+  def beautiful_printer(dishes = @dishes)
+    dishes.each do |key, value|
+      "#{key}. #{value[0]}  £#{value[1]}"
+    end
+  end
 end
