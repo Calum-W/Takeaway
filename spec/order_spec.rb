@@ -14,7 +14,6 @@ describe Order do
   end
   describe "#receipt" do
     it "prints all ordered items and the total cost" do
-      order.calculate_price(filled_basket)
       expect{ order.receipt(filled_basket) }.to output("Beefburger  £5\nCrisps  £1\nTOTAL: £6\n").to_stdout
     end
   end
