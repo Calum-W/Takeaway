@@ -1,4 +1,6 @@
 require 'twilio-ruby'
+require 'envyable'
+Envyable.load('./config/env.yml', 'development')
 
 module TwilioIntegration
   ACCOUNT_SID = ENV["TWILIO_ACCOUNT_SID"]
