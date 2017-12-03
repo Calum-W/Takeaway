@@ -2,9 +2,8 @@ require 'shop'
 require 'menu'
 
 describe Shop do
-
   subject(:shop) { described_class.new }
-  let(:menu) { double(:menu, dishes: "this is the menu") }
+  let(:menu) { double(:menu, dishes: 'this is the menu') }
   let(:set_time) { Time.new(2017, 12, 4, 2, 2, 2) }
 
   describe "#add_to_order" do
@@ -20,8 +19,9 @@ describe Shop do
     end
   end
   describe "#place_order" do
-    it "returns a confirmation message with a delivery time one hour from now" do
-      expect{ shop.place_order(set_time) }.to output("Thank you! Your order was placed and will be delivered before 03:02\n").to_stdout
+    it "clears the current order" do
+      shop.place_order(set_time, false)
+      expect(shop.current_order).to eq nil
     end
   end
 end

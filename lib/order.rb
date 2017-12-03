@@ -1,5 +1,4 @@
 class Order
-
   attr_accessor :basket
   attr_reader :total
 
