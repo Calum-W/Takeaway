@@ -3,6 +3,8 @@ require_relative 'order.rb'
 
 class Shop
 
+  DELIVERY_TIME = 60 * 60
+
   attr_reader :menu, :current_order
 
   def initialize
@@ -18,5 +20,19 @@ class Shop
     quantity.times { basket.push(@menu.dishes[item_number]) }
   end
 
-  
+  def place_order(time = Time.now)
+    puts "Thank you! Your order was placed and will be delivered before #{delivery_estimate(time)}"
+    clear_order
+  end
+
+  private
+
+  def delivery_estimate(time)
+    time += DELIVERY_TIME
+    time.strftime("%H:%M")
+  end
+
+  def clear_order
+    @current_order = nil
+  end
 end
