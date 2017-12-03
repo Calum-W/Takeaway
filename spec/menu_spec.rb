@@ -8,10 +8,7 @@ describe Menu do
   describe "#beautiful_printer" do
     it "prints the menu in a beautiful way" do
       dish = { 1 => ["food", "price"] }
-      expect(menu.beautiful_printer(dish)).to eq "1. food  £price"
-      dish.each do |key, value|
-        puts "#{key}. #{value[0]}  £#{value[1]}"
-      end
+      expect(menu.beautiful_printer(dish)).to output "1. food  £price"
     end
   end
 end

@@ -14,7 +14,7 @@ class Menu
 
   def beautiful_printer(dishes = @dishes)
     dishes.each do |key, value|
-      "#{key}. #{value[0]}  £#{value[1]}"
+      puts "#{key}. #{value[0]}  £#{value[1]}"
     end
   end
 end
