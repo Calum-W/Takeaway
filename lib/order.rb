@@ -15,8 +15,9 @@ class Order
     @total
   end
 
-  def basket
-    @basket
+  def receipt(basket = @basket)
+    basket.each { |x| puts "#{x[0]}  £#{x[1]}" }
+    puts "TOTAL: £#{@total}"
   end
 
 end
