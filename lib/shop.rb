@@ -17,4 +17,6 @@ class Shop
   def add_to_order(item_number, quantity, basket = @current_order.basket)
     quantity.times { basket.push(@menu.dishes[item_number]) }
   end
+
+  
 end
