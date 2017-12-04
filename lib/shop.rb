@@ -19,6 +19,7 @@ class Shop
   end
 
   def add_to_order(item_number, quantity, basket = @current_order.basket)
+    raise "Please select an item 1-5" if item_number < 1 || item_number > 5
     quantity.times { basket.push(@menu.dishes[item_number]) }
   end
 
